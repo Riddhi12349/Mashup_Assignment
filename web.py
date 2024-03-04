@@ -140,8 +140,8 @@ def is_valid_email(email):
 
 def send_email(email):
     #flash("Writing an email")
-    sender_email = "raghavgarg.1463@gmail.com"
-    password = "sqya mofk afyk xvru"
+    sender_email = "riddhigarg385@gmail.com"
+    password = "riddhi"
     receiver_email = email
 
     if not is_valid_email(sender_email) or not is_valid_email(receiver_email):
@@ -183,19 +183,19 @@ def send_email(email):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        singer_name = request.form['singer_name']
-        num_videos = int(request.form['num_videos'])
-        duration = int(request.form['duration'])
-        email = request.form['email']
+        singer_namee = request.form['singer_name']
+        num_of_videos = int(request.form['num_videos'])
+        duration_of_videos = int(request.form['duration'])
+        email_id = request.form['email']
 
-        if not (singer_name and num_videos and duration and email):
-            flash('Please fill in all the fields.')
+        if not (singer_namee and num_of_videos and duration_of_videos and email_id):
+            flash('Please fill in all the fields correctly.')
             return redirect(request.url)
 
 
-        make_mashup(singer_name,num_videos,duration,"output.mp3")
-        convert_to_zip("mashup.zip")
-        send_email(email)
+        make_mashup(singer_namee,num_of_videos,duration_of_videos,"output_file.mp3")
+        convert_to_zip("mashup_file.zip")
+        send_email(email_id)
         flash('Your request has been processed. Check your email for the result file.')
 
 
